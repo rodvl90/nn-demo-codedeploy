@@ -1,0 +1,13 @@
+version: 0.0
+Resources:
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "your-lambda-function-name"
+        Alias: "your-alias"
+        CurrentVersion: "1"
+        TargetVersion: "2"
+Hooks:
+  BeforeInstall:
+    - Location: scripts/install_dependencies.sh
+      Timeout: 180
